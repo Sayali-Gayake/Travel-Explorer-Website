@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Travel Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Travel Explorer - explore destinations, view photos & check weather" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+        <span class="title">Travel Explorer</span>
+      </div>
+
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search destinations (e.g., Paris, Tokyo, Goa)" />
+        <button id="searchBtn" class="btn">Search</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h1>Plan better trips — explore places, photos and live weather</h1>
+      <p>Clean UI, fast image previews and real-time weather using Unsplash & OpenWeatherMap APIs.</p>
+    </section>
+
+    <section class="controls">
+      <div class="filter-row">
+        <label>
+          <input id="onlyPhotos" type="checkbox" />
+          Show only images (no weather)
+        </label>
+        <button id="randomBtn" class="btn">Surprise me</button>
+      </div>
+    </section>
+
+    <section id="results" class="grid">
+      <!-- Destination cards injected here -->
+    </section>
+
+    <section id="message" class="message" hidden>
+      <!-- error / empty / loading messages -->
+    </section>
+  </main>
+
+  <!-- Modal for details -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button id="closeModal" class="close">&times;</button>
+      <div class="modal-body">
+        <div id="modalImages" class="modal-images"></div>
+        <div id="modalInfo" class="modal-info">
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
+          <div id="modalWeather" class="weather-block"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <small>Built with HTML, CSS & JavaScript • Unsplash API • OpenWeatherMap • Created by Sayali</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

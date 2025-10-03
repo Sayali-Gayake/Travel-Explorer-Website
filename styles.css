@@ -1,0 +1,110 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#94a3b8;
+  --accent:#00b4d8;
+  --glass: rgba(255,255,255,0.04);
+  --glass-2: rgba(255,255,255,0.02);
+  --radius:14px;
+  --container:1100px;
+  --gap:18px;
+  --text:#e6eef8;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#071029 0%, #071827 60%);
+  color:var(--text);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:24px;}
+
+.topbar{
+  border-bottom:1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 0;
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:36px;height:36px;fill:var(--accent);opacity:0.95}
+.title{font-weight:700;font-size:1.15rem;letter-spacing:0.2px}
+
+.search-wrap{display:flex;gap:8px;align-items:center}
+.search-wrap input[type="search"]{
+  padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.05);outline:none;background:var(--glass);
+  color:var(--text);min-width:260px;transition:box-shadow .15s;
+}
+.search-wrap input[type="search"]:focus{box-shadow:0 4px 18px rgba(0,0,0,0.5)}
+.btn{
+  background:linear-gradient(90deg,var(--accent),#4cc9f0);border:none;padding:9px 14px;border-radius:10px;color:#012;cursor:pointer;font-weight:600;
+  box-shadow: 0 6px 18px rgba(4,48,70,0.3);
+}
+
+.intro{padding:28px 0 6px}
+.intro h1{margin:0;font-size:1.6rem}
+.intro p{color:var(--muted);margin-top:8px}
+
+.controls{display:flex;justify-content:space-between;align-items:center;margin:14px 0}
+.filter-row{display:flex;gap:14px;align-items:center;color:var(--muted)}
+.filter-row label{display:flex;gap:8px;align-items:center}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
+  gap:var(--gap);
+  margin-top:18px;
+}
+
+/* Card */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 30px rgba(2,8,23,0.6);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-8px);box-shadow: 0 10px 40px rgba(3,10,30,0.7);}
+
+.card-img{
+  height:160px;background:#0a0f17;display:block;width:100%;object-fit:cover;
+}
+.card-body{padding:14px}
+.card-title{font-weight:700;margin:0;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.card-sub{color:var(--muted);font-size:0.9rem;margin-top:8px;min-height:40px}
+.card-actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+
+/* weather pill */
+.weather-pill{display:flex;gap:10px;align-items:center;background:var(--glass-2);padding:8px 10px;border-radius:10px}
+.weather-pill .temp{font-weight:700}
+.icon-small{width:36px;height:36px}
+
+/* message */
+.message{padding:28px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));color:var(--muted);text-align:center;border:1px solid rgba(255,255,255,0.02)}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.7));z-index:1000;opacity:0;pointer-events:none;transition:opacity .18s}
+.modal[aria-hidden="false"]{opacity:1;pointer-events:auto}
+.modal-content{width:92%;max-width:980px;background:linear-gradient(180deg,#071827,#07102a);padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,0.04)}
+.close{float:right;background:transparent;border:none;color:var(--muted);font-size:28px;cursor:pointer}
+.modal-body{display:flex;gap:18px;align-items:flex-start}
+.modal-images{flex:1;display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.modal-images img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+.modal-info{flex:1;padding:8px}
+.modal-info h2{margin-top:4px;margin-bottom:8px}
+.weather-block{margin-top:12px;color:var(--muted)}
+
+/* responsive */
+@media (max-width:720px){
+  .topbar-inner{flex-direction:column;gap:12px;align-items:flex-start}
+  .modal-body{flex-direction:column}
+  .modal-images{grid-template-columns:1fr}
+  .intro h1{font-size:1.2rem}
+  .search-wrap input[type="search"]{min-width:160px}
+}
